@@ -19,6 +19,9 @@ module.exports = () => {
 		};
 	}).catch(() => {
 		return pify(getos).then(res => {
+			if (!res) {
+				throw new Error('Unknown OS')
+			}
 			return {
 				os: res.dist || '',
 				name: `${res.dist || ''} ${res.release || ''}`,
