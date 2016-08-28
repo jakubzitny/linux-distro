@@ -19,6 +19,19 @@ module.exports = () => {
 		};
 	}).catch(() => {
 		return pify(getos).then(res => {
+			if (!res) {
+				res = {}
+			}
+			if (!res.dist) {
+				res.dist = 'Unknown'
+			}
+			if (!res.release) {
+				res.release = 'Unknown'
+			}
+			if (!res.codename) {
+				res.codename = 'Unknown'
+			}
+
 			return {
 				os: res.dist,
 				name: `${res.dist} ${res.release}`,
