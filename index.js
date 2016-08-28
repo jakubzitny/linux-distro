@@ -23,7 +23,7 @@ module.exports = () => {
 				throw new Error('Unknown OS')
 			}
 			return {
-				os: res.dist || '',
+				os: res.dist || 'Unknown',
 				name: `${res.dist || ''} ${res.release || ''}`,
 				release: res.release || '',
 				code: res.codename || ''
